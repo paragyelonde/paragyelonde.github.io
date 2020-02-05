@@ -22,8 +22,9 @@ $brand-black: #000 !default;
 $input-border-focus:  $brand-primary !default;
 $form-group-margin-bottom:       30px !default;
 
-$font-primary: 'Roboto Slab', sans-serif;
-$font-secondary: 'Roboto', sans-serif;;
+$font-primary: 'Pacifico', cursive;
+$font-secondary: 'Pacifico', cursive;
+;
 
 // Mixin
 @mixin transition($transition, $ease: ease) {
@@ -789,7 +790,7 @@ p {
 		position: relative;
 		z-index: 10;
 	}
-	a {
+	div.transition {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -838,7 +839,7 @@ p {
 	}
 	&:hover {
 		
-		> a {
+		> div.transition {
 			opacity: 1;
 			> div {
 				bottom: 20px;
