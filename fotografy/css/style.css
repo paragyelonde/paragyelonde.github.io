@@ -8,7 +8,7 @@ html {
   background: #f7f7f7; }
 
 body {
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
   font-size: 18px;
   font-weight: 300;
   line-height: 1.5;
@@ -40,7 +40,7 @@ a {
     text-decoration: none; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
   color: #000; }
 
 p {
@@ -49,7 +49,7 @@ p {
 .btn {
   margin-right: 4px;
   margin-bottom: 4px;
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
   font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -188,7 +188,7 @@ p {
       #fh5co-header #fh5co-logo {
         top: -2px; } }
     #fh5co-header #fh5co-logo a {
-      font-family: 'Pacifico', cursive;
+      font-family: "Pacifico", cursive;
       font-size: 30px;
       color: #fff; }
       @media screen and (max-width: 768px) {
@@ -209,7 +209,7 @@ p {
         margin: 0;
         display: inline; }
         #fh5co-header #fh5co-main-nav ul li a {
-          font-family: 'Pacifico', cursive;
+          font-family: "Pacifico", cursive;
           color: rgba(255, 255, 255, 0.8);
           text-decoration: none;
           margin-left: 30px;
@@ -233,11 +233,11 @@ p {
       float: left;
       line-height: 1.2; }
       #fh5co-header.navbar-fixed-top #fh5co-logo a {
-        font-family: 'Pacifico', cursive;
+        font-family: "Pacifico", cursive;
         font-size: 30px;
         color: #000; }
     #fh5co-header.navbar-fixed-top #fh5co-main-nav ul li a {
-      font-family: 'Pacifico', cursive;
+      font-family: "Pacifico", cursive;
       color: rgba(0, 0, 0, 0.8);
       text-decoration: none;
       margin-left: 30px;
@@ -270,7 +270,7 @@ p {
       #fh5co-home .flexslider .fh5co-text h1 {
         margin: 0 0 30px 0;
         padding: 0;
-        font-family: 'Pacifico', cursive;
+        font-family: "Pacifico", cursive;
         font-size: 50px;
         font-weight: 400;
         color: #fff;
@@ -289,7 +289,7 @@ p {
       #fh5co-home .flexslider .fh5co-text .fh5co-go {
         margin-top: 30px; }
         #fh5co-home .flexslider .fh5co-text .fh5co-go a {
-          font-family: 'Pacifico', cursive;
+          font-family: "Pacifico", cursive;
           font-size: 13px;
           letter-spacing: 2px;
           text-transform: uppercase;
@@ -492,7 +492,7 @@ p {
         #fh5co-testimony .flexslider .slides li blockquote p {
           font-size: 40px;
           line-height: 1.5;
-          font-family: 'Pacifico', cursive;
+          font-family: "Pacifico", cursive;
           color: white !important; }
           @media screen and (max-width: 768px) {
             #fh5co-testimony .flexslider .slides li blockquote p {
@@ -502,7 +502,7 @@ p {
             display: block;
             padding-top: 20px;
             font-size: 20px;
-            font-family: 'Pacifico', cursive;
+            font-family: "Pacifico", cursive;
             font-style: normal;
             color: rgba(255, 255, 255, 0.7); }
     #fh5co-testimony .flexslider .flex-control-paging {
@@ -579,7 +579,7 @@ p {
   .img-grid img {
     position: relative;
     z-index: 10; }
-  .img-grid a {
+  .img-grid div.transition {
     position: absolute;
     top: 0;
     left: 0;
@@ -592,7 +592,7 @@ p {
     -webkit-transition: 0.5s;
     -o-transition: 0.5s;
     transition: 0.5s; }
-    .img-grid a > div {
+    .img-grid div.transition > div {
       position: absolute;
       bottom: -20px;
       left: 0;
@@ -601,12 +601,12 @@ p {
       -webkit-transition: 0.8s, ease-out;
       -o-transition: 0.8s, ease-out;
       transition: 0.8s, ease-out; }
-    .img-grid a .fh5co-title {
+    .img-grid div.transition .fh5co-title {
       font-size: 18px;
       color: #fff;
       padding: 0;
       position: relative; }
-    .img-grid a .fh5co-meta {
+    .img-grid div.transition .fh5co-meta {
       color: rgba(255, 255, 255, 0.4);
       font-size: 10px;
       font-weight: 400;
@@ -615,7 +615,7 @@ p {
       position: relative;
       padding-bottom: 7px;
       text-transform: uppercase; }
-      .img-grid a .fh5co-meta:after {
+      .img-grid div.transition .fh5co-meta:after {
         content: "";
         position: absolute;
         bottom: 0;
@@ -624,9 +624,9 @@ p {
         height: 2px;
         left: 50%;
         background: #f9ad81; }
-  .img-grid:hover > a {
+  .img-grid:hover > div.transition {
     opacity: 1; }
-    .img-grid:hover > a > div {
+    .img-grid:hover > div.transition > div {
       bottom: 20px; }
 
 .section-heading .fh5co-section-title {
@@ -634,7 +634,7 @@ p {
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #41454f;
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
   font-weight: 700;
   opacity: .4;
   margin-bottom: 20px; }
