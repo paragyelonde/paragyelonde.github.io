@@ -1,0 +1,39 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title></title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body id="particle-slider">
+<div class="slides">
+    <div id="first-slide" class="slide"></div>
+</div>
+<canvas class="draw"></canvas>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/particles.js"></script>
+
+<script>
+    $(document).ready(function () {
+        function toDataURL(url, callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                var reader = new FileReader();
+                reader.onloadend = function () {
+                    callback(reader.result);
+                }
+                reader.readAsDataURL(xhr.response);
+            };
+            xhr.open('GET', url);
+            xhr.responseType = 'blob';
+            xhr.send();
+        }
+
+        toDataURL('https://raw.githubusercontent.com/paragyelonde/paragyelonde.github.io/master/message/img/elephant-bg.png', function (dataUrl) {
+            $('#first-slide').attr("data-src", dataUrl);
+            console.log('RESULT:', dataUrl)
+        })
+    });
+</script>
+<script src="msg.js"></script>
+</body>
+</html>
