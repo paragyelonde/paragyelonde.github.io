@@ -1,0 +1,149 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Simulation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="margin:0;">
+<div class='smoothie'>
+    <div class='smoothie_header'>
+        <div class='smoothie_header__left'>
+            <i class='ion-navicon'></i>
+        </div>
+        <div class='smoothie_header__mid'>
+            <h1>Smoothie Maker</h1>
+        </div>
+        <div class='smoothie_header__right'>
+            <i class='ion-plus'></i>
+        </div>
+    </div>
+    <div class='smoothie_content'>
+        <div class='loader'>
+            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/smoothieloader.png'>
+            <div>Loading smoothie maker</div>
+        </div>
+        <input id='intro' type='checkbox'>
+        <label class='intro_page' for='intro'>
+            <div class='button'>Let's get blending</div>
+            <div class='glyph'>
+                <!-- /%img{:src => 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/whirl2.png'} -->
+            </div>
+        </label>
+        <div class='page'>
+            <div class='intro_animation'>
+                <div class='circle'></div>
+                <div class='blender'></div>
+                <div class='straw'>
+                    <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/intro_strawberry.png'>
+                </div>
+                <div class='orange'>
+                    <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/intro_orange.png'>
+                </div>
+                <div class='apple'>
+                    <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/intro_apple.png'>
+                </div>
+            </div>
+            <h2>CSS only Smoothie Maker</h2>
+            <h3>Select the fruit or vegetables you want in your smoothie and we’ll make it for you! Made entirely in CSS
+                by <a href="https://codepen.io/jcoulterdesign" target='_blank'>Jamie Coulter</a> for Codepen!</h3>
+            <img class='whirly' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/whirl1.png'>
+            <ul>
+                <li>Lots of good fruits</li>
+                <li>Some pretty decent vegetables</li>
+                <li>Bespoke smoothie blendage</li>
+                <li>Free delivery</li>
+            </ul>
+        </div>
+        <div class='page_two'>
+            <h2>Select your ingredients!</h2>
+            <h3>There's lots of yummy fruit & veg to add to your smoothie. Select them from below!</h3>
+            <input id='blend' type='checkbox'>
+            <label class='blend_page' for='blend'>
+                <div class='blendit'>
+                    Blend it!
+                </div>
+            </label>
+            <div class='the_blend'>
+                <h1>SUPER YUMMY!</h1>
+                <img class='spin' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/the_blend.png'>
+            </div>
+            <h4>Select from these popular fruits & veg</h4>
+            <div class='selection'>
+                <div class='row'>
+                    <input id='apple' type='checkbox'>
+                    <label class='apple' for='apple'>
+                        <img class='original' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/intro_apple.png'>
+                        <img class='clone' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/intro_apple.png'>
+                        <div>Apple</div>
+                        <i class='ion-checkmark-round'></i>
+                    </label>
+                    <input id='carrot' type='checkbox'>
+                    <label class='carrot' for='carrot'>
+                        <img class='original' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/carrot.png'>
+                        <img class='clone' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/carrot.png'>
+                        <div>Carrot</div>
+                        <i class='ion-checkmark-round'></i>
+                    </label>
+                    <input id='orange' type='checkbox'>
+                    <label class='orange' for='orange'>
+                        <img class='original'
+                             src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/intro_orange.png'>
+                        <img class='clone' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/intro_orange.png'>
+                        <div>Orange</div>
+                        <i class='ion-checkmark-round'></i>
+                    </label>
+                    <input id='cherry' type='checkbox'>
+                    <label class='cherry' for='cherry'>
+                        <img class='original' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/cherry.png'>
+                        <img class='clone' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/cherry.png'>
+                        <div>Cherry</div>
+                        <i class='ion-checkmark-round'></i>
+                    </label>
+                </div>
+                <div class='row'>
+                    <input id='peach' type='checkbox'>
+                    <label class='peach' for='peach'>
+                        <img class='original' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/peach.png'>
+                        <img class='clone' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/peach.png'>
+                        <div>Peach</div>
+                        <i class='ion-checkmark-round'></i>
+                    </label>
+                    <input id='melon' type='checkbox'>
+                    <label class='melon' for='melon'>
+                        <img class='original' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/melon.png'>
+                        <img class='clone' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/melon.png'>
+                        <div>Melon</div>
+                        <i class='ion-checkmark-round'></i>
+                    </label>
+                    <input id='pear' type='checkbox'>
+                    <label class='pear' for='pear'>
+                        <img class='original' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/pear.png'>
+                        <img class='clone' src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/pear.png'>
+                        <div>Pear</div>
+                        <i class='ion-checkmark-round'></i>
+                    </label>
+                    <input id='straw' type='checkbox'>
+                    <label class='straw' for='straw'>
+                        <img class='original'
+                             src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/intro_strawberry.png'>
+                        <img class='clone'
+                             src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/intro_strawberry.png'>
+                        <div>Strawberry</div>
+                        <i class='ion-checkmark-round'></i>
+                    </label>
+                </div>
+            </div>
+            <div class='complete'>
+                <div class='complete_overlay'></div>
+                <div class='complete_inner'>
+                    <h2>Smoothie success!</h2>
+                    <h3>Your tasty smoothie is ready and on its way!</h3>
+                    <a href='https://codepen.io/jcoulterdesign' target='_blank'>Follow me on Codepen</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

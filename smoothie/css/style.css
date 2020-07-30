@@ -1,0 +1,1071 @@
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,500,500italic,700italic,700,400italic,300italic,300);
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Fira Sans, sans-serif;
+  background: #F3F3F3;
+  -webkit-perspective: 800px;
+  perspective: 800px;
+  height: 100vh;
+  overflow: hidden;
+}
+body .smoothie {
+  opacity: 0;
+  -webkit-transform: rotateX(0deg) translateY(-50%) translateZ(0px);
+  transform: rotateX(0deg) translateY(-50%) translateZ(0px);
+  -webkit-animation: in 0.9s 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  animation: in 0.9s 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  overflow: hidden;
+  width: 320px;
+  height: 550px;
+  box-shadow: 0px 30px 67px -26px #69555A;
+  margin: 0 auto;
+  background: #bf4861;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+body .smoothie input[type="checkbox"] {
+  display: none;
+  position: absolute;
+  z-index: 222;
+}
+body .smoothie_header {
+  background: white;
+  overflow: auto;
+  padding: 12px 0px;
+}
+body .smoothie_header h1 {
+  font-size: 12px;
+  margin: 0;
+}
+body .smoothie_header__left {
+  float: left;
+  width: 33.33%;
+  padding: 0px 0px 0px 20px;
+  color: #bf4861;
+  font-size: 24px;
+}
+body .smoothie_header__left i {
+  cursor: pointer;
+  position: relative;
+  top: 1px;
+}
+body .smoothie_header__mid {
+  float: left;
+  width: 33.33%;
+  color: #bf4861;
+  text-align: center;
+  padding: 8px 0px 0px 0px;
+}
+body .smoothie_header__mid h1 {
+  font-weight: 500;
+  font-size: 11px;
+}
+body .smoothie_header__right {
+  float: right;
+  text-align: right;
+  width: 33.33%;
+  padding: 5px 20px 0px 0px;
+  color: #bf4861;
+}
+body .smoothie_header__right i {
+  cursor: pointer;
+}
+body .smoothie_content {
+  width: 320px;
+  height: 500px;
+  position: relative;
+}
+body .smoothie_content .intro_page {
+  bottom: 0px;
+  cursor: pointer;
+  width: 100%;
+  position: absolute;
+  display: block;
+  z-index: 2;
+}
+body .smoothie_content .glyph {
+  text-align: Center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 51px;
+}
+body .smoothie_content .glyph img {
+  width: 20px;
+  margin: 0 auto;
+  position: relative;
+  top: 10px;
+  opacity: 0;
+  -webkit-animation: pop 1s 6.2s forwards;
+  animation: pop 1s 6.2s forwards;
+}
+body .smoothie_content .button {
+  background: #A23D52;
+  width: 100%;
+  padding: 20px 20px 22px 20px;
+  text-align: Center;
+  color: white;
+  -webkit-transition: background .3s;
+  transition: background .3s;
+  -webkit-animation: button 1s 6.4s forwards;
+  animation: button 1s 6.4s forwards;
+  -webkit-transform: translateY(100px);
+  transform: translateY(100px);
+  font-size: 12px;
+}
+body .smoothie_content .button:hover {
+  background: #9A2D44;
+}
+body .smoothie_content .button:hover + .glyph {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+body .smoothie_content .loader {
+  -webkit-animation: loader 4s 1s forwards;
+  animation: loader 4s 1s forwards;
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  width: 200px;
+  top: 50%;
+  -webkit-transform: translatey(-140%);
+  transform: translatey(-140%);
+}
+body .smoothie_content .loader img {
+  width: 14px;
+  -webkit-animation: rotate 2s infinite;
+  animation: rotate 2s infinite;
+}
+body .smoothie_content .loader div {
+  color: white;
+  clear: both;
+  font-size: 11px;
+  position: relative;
+  top: 10px;
+}
+body .smoothie_content .page {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 38px;
+  -webkit-transition: all 1s 0.2s cubic-bezier(1, 0, 0.215, 1);
+  transition: all 1s 0.2s cubic-bezier(1, 0, 0.215, 1);
+  text-align: center;
+}
+body .smoothie_content .page .intro_animation {
+  position: relative;
+  width: 200px;
+  margin: 0 auto;
+}
+body .smoothie_content .page .circle {
+  width: 90px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 90px;
+  background: #B3455C;
+  left: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-animation: circle .8s 4.7s forwards;
+  animation: circle .8s 4.7s forwards;
+  border-radius: 100px;
+}
+body .smoothie_content .page .blender {
+  margin: 0 auto;
+  left: 0px;
+  position: relative;
+  top: 10px;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/blenderstrip.png");
+  height: 84px;
+  background-size: 152px;
+  width: 50px;
+  -webkit-transform: rotate(-16deg) scale(0);
+  transform: rotate(-16deg) scale(0);
+  -webkit-transition: all .5s .8s;
+  transition: all .5s .8s;
+  -webkit-animation: blender .8s 4.9s forwards,strip .25s 5s infinite;
+  animation: blender .8s 4.9s forwards,strip .25s 5s infinite;
+}
+body .smoothie_content .page .apple img {
+  opacity: 0;
+  -webkit-transition: all .1s 1s;
+  transition: all .1s 1s;
+  width: 20px;
+  position: absolute;
+  left: 61px;
+  top: 77px;
+  z-index: 1;
+  -webkit-animation: pop .8s 5.1s forwards;
+  animation: pop .8s 5.1s forwards;
+}
+body .smoothie_content .page .orange img {
+  width: 20px;
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  -webkit-transition: all .16s 1s;
+  transition: all .16s 1s;
+  -webkit-animation: pop .8s 5.3s forwards;
+  animation: pop .8s 5.3s forwards;
+}
+body .smoothie_content .page .straw img {
+  width: 20px;
+  opacity: 0;
+  position: absolute;
+  left: 129px;
+  top: 73px;
+  z-index: 2;
+  -webkit-transition: all .19s 1s;
+  transition: all .19s 1s;
+  -webkit-animation: pop .8s 5.5s forwards;
+  animation: pop .8s 5.5s forwards;
+}
+body .smoothie_content .page h2 {
+  font-weight: 300;
+  font-size: 16px;
+  opacity: 0;
+  margin: 40px 0px 0px 0px;
+  color: white;
+  -webkit-animation: pop .8s 5.7s forwards;
+  animation: pop .8s 5.7s forwards;
+}
+body .smoothie_content .page h3 {
+  font-weight: 200;
+  font-size: 11px;
+  -webkit-animation: pop .8s 5.9s forwards;
+  animation: pop .8s 5.9s forwards;
+  opacity: 0;
+  margin: 10px 0px 0px 0px;
+  line-height: 15px;
+  color: #f0a8b7;
+}
+body .smoothie_content .page a {
+  color: #FFFFFF;
+}
+body .smoothie_content .page .whirly {
+  width: 19px;
+  margin-top: 30px;
+  opacity: 0;
+  -webkit-animation: pop .8s 6.1s forwards;
+  animation: pop .8s 6.1s forwards;
+}
+body .smoothie_content .page ul {
+  padding: 0;
+  margin: 20px 0px 20px 0px;
+  -webkit-animation: pop .8s 6.3s forwards;
+  animation: pop .8s 6.3s forwards;
+  opacity: 0;
+}
+body .smoothie_content .page ul li {
+  list-style-type: none;
+  font-size: 11px;
+  color: white;
+  font-weight: 300;
+  padding: 6px 0px;
+}
+body .smoothie_content .page_two {
+  position: absolute;
+  box-shadow: -8px 0px 30px -20px #732334;
+  z-index: 2;
+  background: #A92F49;
+  width: 320px;
+  height: 500px;
+  left: 320px;
+  padding: 38px;
+  top: 0;
+  text-align: Center;
+  -webkit-transition: all 1s 0.2s cubic-bezier(1, 0, 0.215, 1);
+  transition: all 1s 0.2s cubic-bezier(1, 0, 0.215, 1);
+}
+body .smoothie_content .page_two .blendit {
+  background: #7C1F33;
+  width: 100%;
+  position: absolute;
+  cursor: pointer;
+  bottom: 0;
+  left: 0;
+  padding: 20px 20px 22px 20px;
+  text-align: Center;
+  color: white;
+  -webkit-transition: background .3s;
+  transition: background .3s;
+  -webkit-animation: button .8s 6.3s forwards;
+  animation: button .8s 6.3s forwards;
+  -webkit-transform: translateY(100px);
+  transform: translateY(100px);
+  font-size: 12px;
+}
+body .smoothie_content .page_two .blendit:hover {
+  background: #6B1A2B;
+}
+body .smoothie_content .page_two h4 {
+  color: white;
+  font-size: 11px;
+  font-weight: 400;
+  margin-top: 28px;
+}
+body .smoothie_content .page_two .the_blend {
+  -webkit-transform-origin: 124px 70px;
+  transform-origin: 124px 70px;
+  position: relative;
+}
+body .smoothie_content .page_two .the_blend h1 {
+  position: absolute;
+  color: white;
+  z-index: 1;
+  font-size: 23px;
+  left: 0;
+  -webkit-transition: all 0.3s 4.2s cubic-bezier(0.54, 1.82, 0.64, 0.83);
+  transition: all 0.3s 4.2s cubic-bezier(0.54, 1.82, 0.64, 0.83);
+  right: 0;
+  -webkit-transform: rotate(-17deg) scale(0);
+  transform: rotate(-17deg) scale(0);
+  top: 50px;
+  text-shadow: 0px 2px 0px #771127;
+}
+body .smoothie_content .page_two .the_blend .spin {
+  width: 96px;
+  margin-top: 30px;
+}
+body .smoothie_content .page_two .the_blend .apple {
+  position: absolute;
+  top: 43px;
+  width: 16px;
+  -webkit-transform: rotate(-30deg) !important;
+  transform: rotate(-30deg) !important;
+  -webkit-animation: none !important;
+  animation: none !important;
+  left: 97px;
+  opacity: 1 !important;
+}
+body .smoothie_content .page_two .row {
+  width: 100%;
+  height: 70px;
+}
+body .smoothie_content .page_two .selection label.carrot img {
+  top: -11px;
+}
+body .smoothie_content .page_two .selection label.carrot i {
+  top: 12px;
+}
+body .smoothie_content .page_two .selection label.carrot div {
+  margin-top: 4px;
+}
+body .smoothie_content .page_two .selection label.orange i {
+  top: 11px;
+}
+body .smoothie_content .page_two .selection label.peach div {
+  margin-top: 9px;
+}
+body .smoothie_content .page_two .selection label.peach i {
+  top: 15px;
+}
+body .smoothie_content .page_two .selection label.peach img {
+  top: -9px;
+}
+body .smoothie_content .page_two .selection label.melon div {
+  margin-top: 15px;
+}
+body .smoothie_content .page_two .selection label.melon img {
+  top: 5px;
+}
+body .smoothie_content .page_two .selection label.melon i {
+  top: 14px;
+}
+body .smoothie_content .page_two .selection label.cherry img {
+  top: -6px;
+}
+body .smoothie_content .page_two .selection label.cherry div {
+  margin-top: 7px;
+}
+body .smoothie_content .page_two .selection label.pear img {
+  top: -5px;
+}
+body .smoothie_content .page_two .selection label.pear div {
+  margin-top: 15px;
+}
+body .smoothie_content .page_two .selection label.pear i {
+  top: 14px;
+}
+body .smoothie_content .page_two .selection label.straw img {
+  top: 2px;
+}
+body .smoothie_content .page_two .selection label.straw div {
+  margin-top: 15px;
+}
+body .smoothie_content .page_two .selection .apple img {
+  width: 20px;
+}
+body .smoothie_content .page_two .selection .carrot img {
+  width: 16px;
+}
+body .smoothie_content .page_two .selection .straw img {
+  width: 16px;
+}
+body .smoothie_content .page_two .selection .orange img {
+  width: 20px;
+}
+body .smoothie_content .page_two .selection .peach img {
+  width: 22px;
+}
+body .smoothie_content .page_two .selection .melon img {
+  width: 29px;
+}
+body .smoothie_content .page_two .selection .cherry img {
+  width: 20px;
+}
+body .smoothie_content .page_two .selection .pear img {
+  width: 17px;
+}
+body .smoothie_content .page_two .selection label {
+  position: relative;
+  cursor: pointer;
+  float: left;
+  height: 20px;
+  margin-top: 9px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  width: 25%;
+}
+body .smoothie_content .page_two .selection label img {
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+}
+body .smoothie_content .page_two .selection label i {
+  color: #66D233;
+  position: absolute;
+  top: 13px;
+  right: 16px;
+  font-size: 9px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+body .smoothie_content .page_two .selection label:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+body .smoothie_content .page_two .selection label div {
+  color: White;
+  font-size: 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -24px;
+}
+body .smoothie_content .page_two .selection .clone {
+  opacity: 0.3;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0px;
+  margin: auto;
+}
+body .smoothie_content .page_two .selection .original {
+  left: 0;
+  width: 20px;
+  top: 0;
+  position: absolute;
+  -webkit-transition: top 1s cubic-bezier(0.19, 1, 0.22, 1), left 0.6s, -webkit-transform 0.6s;
+  transition: top 1s cubic-bezier(0.19, 1, 0.22, 1), left 0.6s, -webkit-transform 0.6s;
+  transition: top 1s cubic-bezier(0.19, 1, 0.22, 1), left 0.6s, transform 0.6s;
+  transition: top 1s cubic-bezier(0.19, 1, 0.22, 1), left 0.6s, transform 0.6s, -webkit-transform 0.6s;
+}
+body .smoothie_content .page_two h2 {
+  font-weight: 300;
+  font-size: 16px;
+  margin: 0px 0px 0px 0px;
+  color: white;
+}
+body .smoothie_content .page_two h3 {
+  font-weight: 200;
+  font-size: 11px;
+  margin: 10px 0px 0px 0px;
+  line-height: 15px;
+  color: #f0a8b7;
+}
+body .smoothie_content .page_three {
+  position: absolute;
+  left: 1280px;
+  background: blue;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+body .smoothie #intro:checked + label + .page + .page_two {
+  left: 0px;
+}
+body .smoothie #intro:checked + label + .page {
+  left: -320px;
+}
+body .smoothie #intro:not(checked) + label + .page .blender {
+  left: 0px;
+  -webkit-transform: rotate(0deg) scale(0);
+  transform: rotate(0deg) scale(0);
+  -webkit-transition: all .5s .8s;
+  transition: all .5s .8s;
+}
+body .smoothie #intro:not(checked) + label + .page .apple img {
+  left: 61px;
+  top: 77px;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: all .5s .75s;
+  transition: all .5s .75s;
+}
+body .smoothie #intro:not(checked) + label + .page .orange img {
+  left: 117px;
+  top: 77px;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: all .5s .85s;
+  transition: all .5s .85s;
+}
+body .smoothie #intro:not(checked) + label + .page .straw img {
+  left: 129px;
+  top: 73px;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: all .5s .9s;
+  transition: all .5s .9s;
+}
+body .smoothie #intro:checked + label + .page + .page_two h2 {
+  opacity: 0;
+  -webkit-animation: pop .5s .7s forwards;
+  animation: pop .5s .7s forwards;
+}
+body .smoothie #intro:checked + label + .page + .page_two h3 {
+  opacity: 0;
+  -webkit-animation: pop .5s .9s forwards;
+  animation: pop .5s .9s forwards;
+}
+body .smoothie #intro:checked + label + .page + .page_two .the_blend img {
+  opacity: 0;
+  -webkit-animation: pop .5s 1.1s forwards;
+  animation: pop .5s 1.1s forwards;
+}
+body .smoothie #intro:checked + label + .page + .page_two h4 {
+  opacity: 0;
+  -webkit-animation: pop .5s 1.3s forwards;
+  animation: pop .5s 1.3s forwards;
+}
+body .smoothie #intro:checked + label + .page + .page_two label.apple {
+  opacity: 0;
+  -webkit-animation: pop .5s 1.5s forwards;
+  animation: pop .5s 1.5s forwards;
+}
+body .smoothie #intro:checked + label + .page + .page_two label.carrot {
+  opacity: 0;
+  -webkit-animation: pop .5s 1.52s forwards;
+  animation: pop .5s 1.52s forwards;
+}
+body .smoothie #intro:checked + label + .page + .page_two label.orange {
+  opacity: 0;
+  -webkit-animation: pop .5s 1.54s forwards;
+  animation: pop .5s 1.54s forwards;
+}
+body .smoothie #intro:checked + label + .page + .page_two label.cherry {
+  opacity: 0;
+  -webkit-animation: pop .5s 1.56s forwards;
+  animation: pop .5s 1.56s forwards;
+}
+body .smoothie #intro:checked + label + .page + .page_two label.peach {
+  opacity: 0;
+  -webkit-animation: pop .5s 1.58s forwards;
+  animation: pop .5s 1.58s forwards;
+}
+body .smoothie #intro:checked + label + .page + .page_two label.melon {
+  opacity: 0;
+  -webkit-animation: pop .5s 1.6s forwards;
+  animation: pop .5s 1.6s forwards;
+}
+body .smoothie #intro:checked + label + .page + .page_two label.pear {
+  opacity: 0;
+  -webkit-animation: pop .5s 1.62s forwards;
+  animation: pop .5s 1.62s forwards;
+}
+body .smoothie #intro:checked + label + .page + .page_two label.straw {
+  opacity: 0;
+  -webkit-animation: pop .5s 1.64s forwards;
+  animation: pop .5s 1.64s forwards;
+}
+body .smoothie #intro:checked + label + .page .blender {
+  left: -200px;
+  -webkit-transform: rotate(-15deg);
+  transform: rotate(-15deg);
+  -webkit-transition: all .5s .4s;
+  transition: all .5s .4s;
+}
+body .smoothie #intro:checked + label + .page .apple img {
+  left: -200px;
+  -webkit-transform: rotate(-15deg);
+  transform: rotate(-15deg);
+  -webkit-transition: all .5s .35s;
+  transition: all .5s .35s;
+}
+body .smoothie #intro:checked + label + .page .orange img {
+  left: -200px;
+  -webkit-transform: rotate(-15deg);
+  transform: rotate(-15deg);
+  -webkit-transition: all .5s .45s;
+  transition: all .5s .45s;
+}
+body .smoothie #intro:checked + label + .page .straw img {
+  left: -200px;
+  -webkit-transform: rotate(-15deg);
+  transform: rotate(-15deg);
+  -webkit-transition: all .5s .5s;
+  transition: all .5s .5s;
+}
+body .smoothie #intro:checked + label + .page .button {
+  -webkit-transform: translate(-100px);
+  transform: translate(-100px);
+}
+body .smoothie #blend:checked + label + .page_two {
+  left: 0px;
+}
+body .smoothie #blend:checked + label + .the_blend {
+  -webkit-animation: blendit 5s;
+  animation: blendit 5s;
+}
+body .smoothie #blend:checked + label + .the_blend + h4 + .selection .original {
+  display: none;
+}
+body .smoothie #blend:checked + label + .the_blend + h4 + .selection + .complete .complete_inner {
+  -webkit-transform: translateY(-50%) scale(1);
+  transform: translateY(-50%) scale(1);
+}
+body .smoothie #blend:checked + label + .the_blend + h4 + .selection + .complete .complete_overlay {
+  opacity: 1;
+}
+body .smoothie #blend:checked + label + .the_blend h1 {
+  -webkit-transform: rotate(-17deg) scale(1);
+  transform: rotate(-17deg) scale(1);
+}
+body .smoothie .selection input:checked + label i {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+body .smoothie .selection input:checked + label {
+  -webkit-transform: scale(1) !important;
+  transform: scale(1) !important;
+}
+body .smoothie #apple:checked + label .original {
+  position: relative;
+  top: -142px;
+  width: 16px;
+  -webkit-transform: rotate(-30deg);
+  transform: rotate(-30deg);
+  left: 74px;
+}
+body .smoothie #apple:not(checked) + label .original {
+  position: relative;
+  width: 20px;
+  top: 0px;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  left: 0px;
+}
+body .smoothie #carrot:checked + label .original {
+  position: relative;
+  top: -134px;
+  width: 12px;
+  left: 45px;
+  -webkit-transform: rotate(-17deg);
+  transform: rotate(-17deg);
+}
+body .smoothie #carrot:not(checked) + label .original {
+  position: relative;
+  width: 16px;
+  top: -11px;
+  left: 0px;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+body .smoothie #orange:checked + label .original {
+  position: relative;
+  top: -85px;
+  left: -42px;
+  width: 16px;
+}
+body .smoothie #orange:not(checked) + label .original {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 20px;
+}
+body .smoothie #cherry:checked + label .original {
+  position: relative;
+  top: -121px;
+  left: -95px;
+  width: 17px;
+  -webkit-transform: rotate(22deg);
+  transform: rotate(22deg);
+}
+body .smoothie #cherry:not(checked) + label .original {
+  position: relative;
+  width: 20px;
+  top: -6px;
+  left: 0px;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+body .smoothie #peach:checked + label .original {
+  top: -192px;
+  left: 54px;
+  width: 17px;
+  -webkit-transform: rotate(-20deg);
+  transform: rotate(-20deg);
+}
+body .smoothie #peach:not(checked) + label .original {
+  position: relative;
+  top: -9px;
+  width: 22px;
+  left: 0px;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+body .smoothie #melon:checked + label .original {
+  position: relative;
+  top: -157px;
+  width: 24px;
+  left: 56px;
+  -webkit-transform: rotate(-28deg);
+  transform: rotate(-28deg);
+}
+body .smoothie #melon:not(checked) + label .original {
+  position: relative;
+  top: 5px;
+  width: 29px;
+  left: 0px;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+body .smoothie #pear:checked + label .original {
+  position: relative;
+  top: -207px;
+  left: 4px;
+  width: 13px;
+  -webkit-transform: rotate(22deg);
+  transform: rotate(22deg);
+}
+body .smoothie #pear:not(checked) + label .original {
+  position: relative;
+  width: 17px;
+  top: -5px;
+  left: 0px;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+body .smoothie #straw:checked + label .original {
+  position: relative;
+  top: -224px;
+  width: 13px;
+  left: -87px;
+  -webkit-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+body .smoothie #straw:not(checked) + label .original {
+  position: relative;
+  top: 2px;
+  width: 16px;
+  left: 0px;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+body .complete_overlay {
+  position: absolute;
+  background: rgba(119, 31, 50, 0.79);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 3;
+  pointer-events: none;
+  left: 0;
+  opacity: 0;
+  -webkit-transition: all .4s 5.7s;
+  transition: all .4s 5.7s;
+}
+body .complete_inner {
+  -webkit-transition: all 0.4s 6s cubic-bezier(0.54, 1.82, 0.64, 0.83);
+  transition: all 0.4s 6s cubic-bezier(0.54, 1.82, 0.64, 0.83);
+  background: white;
+  position: absolute;
+  width: 270px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 50%;
+  z-index: 4;
+  -webkit-transform: translateY(-50%) scale(0);
+  transform: translateY(-50%) scale(0);
+  padding: 30px;
+  border-radius: 10px;
+}
+body .complete_inner h2 {
+  color: #AA3850 !important;
+  font-weight: 500 !important;
+}
+body .complete_inner h3 {
+  font-weight: 400;
+  font-size: 11px;
+  margin: 10px 0px 0px 0px;
+  line-height: 15px;
+  color: #DE8799;
+}
+body .complete_inner a {
+  display: block;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  border: 2px solid #812236;
+  color: #812236;
+  border-radius: 4px;
+  padding: 15px;
+  margin-top: 20px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+body .complete_inner a:hover {
+  color: white;
+  background: #812236;
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes loader {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes loader {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes circle {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes circle {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes blender {
+  0% {
+    -webkit-transform: scale(0) rotate(-15deg);
+    transform: scale(0) rotate(-15deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(0deg);
+  }
+}
+@keyframes blender {
+  0% {
+    -webkit-transform: scale(0) rotate(-15deg);
+    transform: scale(0) rotate(-15deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotate(0deg);
+    transform: scale(1) rotate(0deg);
+  }
+}
+@-webkit-keyframes pop {
+  0% {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes pop {
+  0% {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes in {
+  0% {
+    -webkit-transform: rotateX(90deg) translateY(-37%) translateZ(0px);
+    transform: rotateX(90deg) translateY(-37%) translateZ(0px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg) translateY(-50%) translateZ(0px);
+    transform: rotateX(0deg) translateY(-50%) translateZ(0px);
+    opacity: 1;
+  }
+}
+@keyframes in {
+  0% {
+    -webkit-transform: rotateX(90deg) translateY(-37%) translateZ(0px);
+    transform: rotateX(90deg) translateY(-37%) translateZ(0px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg) translateY(-50%) translateZ(0px);
+    transform: rotateX(0deg) translateY(-50%) translateZ(0px);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes button {
+  0% {
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+@keyframes button {
+  0% {
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+@-webkit-keyframes strip {
+  0% {
+    background-position: 0px 0px;
+  }
+  32% {
+    background-position: 0px 0px;
+  }
+  33% {
+    background-position: 51px 0px;
+  }
+  65% {
+    background-position: 51px 0px;
+  }
+  66% {
+    background-position: 102px 0px;
+  }
+  99% {
+    background-position: 102px 0px;
+  }
+  100% {
+    background-position: 0px 0px;
+  }
+}
+@keyframes strip {
+  0% {
+    background-position: 0px 0px;
+  }
+  32% {
+    background-position: 0px 0px;
+  }
+  33% {
+    background-position: 51px 0px;
+  }
+  65% {
+    background-position: 51px 0px;
+  }
+  66% {
+    background-position: 102px 0px;
+  }
+  99% {
+    background-position: 102px 0px;
+  }
+  100% {
+    background-position: 0px 0px;
+  }
+}
+@-webkit-keyframes blendit {
+  0% {
+    -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    -webkit-transform: rotate(3600deg) scale(1);
+    transform: rotate(3600deg) scale(1);
+  }
+}
+@keyframes blendit {
+  0% {
+    -webkit-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    -webkit-transform: rotate(3600deg) scale(1);
+    transform: rotate(3600deg) scale(1);
+  }
+}
