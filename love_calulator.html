@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Calculator 💖</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background: #ffcccb; }
+        .container {
+            width: 90%; max-width: 400px; background: white; padding: 20px;
+            margin: 50px auto; border-radius: 10px; box-shadow: 0px 0px 10px gray;
+        }
+        input, button {
+            width: 90%; padding: 10px; margin: 10px 0; border: none; border-radius: 5px;
+        }
+        button { background: red; color: white; font-size: 16px; cursor: pointer; }
+        #result { font-size: 20px; font-weight: bold; color: red; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>💖 Love Calculator 💖</h2>
+        <input type="text" id="name1" placeholder="Your Name">
+        <input type="text" id="name2" placeholder="Your Partner's Name">
+        <button id="calculate">Calculate Love 💕</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        let apiUrl = "https://script.google.com/macros/s/AKfycbyl5tf4Eb6p1QvvkN_IOSfGqtNTjb8aqgpiL1_P6FTdnJ_OwAXu2TzWup0ju57AdjZdPA/exec";
+
+        $("#calculate").click(function() {
+            let name1 = $("#name1").val().trim();
+            let name2 = $("#name2").val().trim();
+            let lovePercentage = Math.floor(Math.random() * 100) + 1;
+
+            if (name1 && name2) {
+                $("#result").text(`❤️ Love Percentage: ${lovePercentage}%`);
+                saveToGoogleSheets(name1, name2, lovePercentage);
+            } else {
+                alert("Please enter both names!");
+            }
+        });
+
+        function saveToGoogleSheets(name1, name2, lovePercentage) {
+            let data = { name1, name2, lovePercentage };
+
+            $.ajax({
+                url: apiUrl,
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(data),
+                success: function(response) {
+                    console.log("Data saved:", response);
+                },
+                error: function(error) {
+                    console.error("Error saving data:", error);
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
