@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Chat Story</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f1f1f1; /* Light gray background */
+    }
+    .chat-container {
+        width: 350px;
+        height: 500px;
+        background: linear-gradient(135deg, #f9f9f9, #ffffff); /* Soft gradient background for chat box */
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+    .chat-header {
+        background: #6c9eaf; /* Soft teal color */
+        color: white;
+        padding: 12px;
+        text-align: center;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .chat-header span {
+        margin-left: 8px;
+    }
+    .chat-body {
+        flex: 1;
+        padding: 15px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .message {
+        max-width: 75%;
+        padding: 10px;
+        border-radius: 12px;
+        margin: 8px 0;
+        font-size: 15px;
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+    .sent {
+        background: #e3f4f1; /* Light greenish-blue for sent messages */
+        align-self: flex-end;
+    }
+    .received {
+        background: #f8d7da; /* Soft pink for received messages */
+        align-self: flex-start;
+    }
+    .sent span,
+    .received span {
+        margin-right: 10px;
+        font-size: 20px;
+    }
+    .continue-btn {
+        margin-top: 20px;
+        padding: 12px;
+        background: #6c9eaf;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .continue-btn:hover {
+        background: #5b8b97; /* Slightly darker teal when hovered */
+    }
+</style>
+
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            NoName <span>👩</span>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <!-- Messages will be added here dynamically -->
+        </div>
+        <button class="continue-btn" id="continueBtn" style="display:none;">Continue to Next Part</button>
+    </div>
+
+    <script>
+        const firstPartMessages = [
+            { text: "Hey hi! How’s you? 😊 I need to say something important...", type: "sent", emoji: "👨" },
+            { text: "Hey, I’m good! What’s up? 😅", type: "received", emoji: "👩" },
+            { text: "I’ve been thinking about this for a while now... I really like you. 💭", type: "sent", emoji: "👨" },
+            { text: "I... I like you too, but I’m hesitant... 😕", type: "received", emoji: "👩" },
+            { text: "Please, don't be unsure. I promise I’ll always be here for you. Will you be mine? ❤️", type: "sent", emoji: "👨" },
+            { text: "I like you, but I’m scared... 😞", type: "received", emoji: "👩" },
+            { text: "I understand, but please promise me you’ll never leave me. I’ll take care of you, always. 🥺", type: "sent", emoji: "👨" },
+            { text: "I’m not sure, I don’t want to hurt you... I like you a lot but... 😔", type: "received", emoji: "👩" },
+            { text: "I’ll always protect you. I won’t leave, and I’ll always take care of you. Please, trust me. 💖", type: "sent", emoji: "👨" },
+            { text: "Okay... but only if you really mean it... 😘", type: "received", emoji: "👩" },
+            { text: "I do mean it. I’m all yours... Now, say 'I’m the best decision you ever made' and I’ll be yours forever! 😏", type: "sent", emoji: "👨" },
+            { text: "Okay, okay! You’re the best decision I ever made! 😘", type: "received", emoji: "👩" },
+            { text: "Love you! ❤️", type: "sent", emoji: "👨" },
+            { text: "Love you too! 💖", type: "received", emoji: "👩" }
+        ];
+
+        const secondPartMessages = [
+            { text: "Hey, I’ve been feeling a little distant lately... 😔", type: "sent", emoji: "👨" },
+            { text: "What do you mean? Did something happen? 😕", type: "received", emoji: "👩" },
+            { text: "I don’t know... You just seem so far away from me lately... 😞", type: "sent", emoji: "👨" },
+            { text: "I’m not doing anything wrong, right? 😓", type: "received", emoji: "👩" },
+            { text: "No, you’re not. It’s just... I feel like you’re always busy or distracted. 😔", type: "sent", emoji: "👨" },
+            { text: "I'm sorry... I didn’t mean to hurt you. I’ve just been stressed. 😞", type: "received", emoji: "👩" },
+            { text: "I understand, but I need you to be here with me. I can’t handle this distance... 💔", type: "sent", emoji: "👨" },
+            { text: "I’m here now... I just need some time to sort things out. Can you wait for me? 🕰️", type: "received", emoji: "👩" },
+            { text: "I’m trying... I really am, but it’s hard. I need more from you. 😔", type: "sent", emoji: "👨" },
+            { text: "So... you don’t trust me? Is this a breakup? 😞", type: "sent", emoji: "👨" },
+            { text: "No, no! I’m not saying that... I’m just scared... 😢", type: "received", emoji: "👩" },
+            { text: "I don’t want to break up... but it feels like we’re drifting apart. 😔", type: "sent", emoji: "👨" },
+            { text: "I don’t want that either... I promise, I’ll fix this. I’ll prove it to you. 💖", type: "received", emoji: "👩" },
+            { text: "I’ll be waiting for you to make it right... Please don’t let me go. 😞", type: "sent", emoji: "👨" },
+            { text: "I’ll do anything to make it right... I swear. Just trust me. 💪❤️", type: "received", emoji: "👩" }
+        ];
+
+        const thirdPartMessages = [
+            { text: "I’ve been thinking a lot... I’m really sorry for how I acted earlier. 😞", type: "sent", emoji: "👨" },
+            { text: "You don’t have to apologize... I understand. We all have our moments. ❤️", type: "received", emoji: "👩" },
+            { text: "I know, but I should’ve been more patient with you. I shouldn’t have acted like that. 😔", type: "sent", emoji: "👨" },
+            { text: "It’s okay, I get it. We all get frustrated sometimes. 😌", type: "received", emoji: "👩" },
+            { text: "I just wanted to make sure everything was alright... but I should’ve trusted you more. 💔", type: "sent", emoji: "👨" },
+            { text: "I know you care, and I love you for it. Just... don’t doubt me so easily. 😘", type: "received", emoji: "👩" },
+            { text: "I’ll try to do better. I just got scared... I don’t want to lose you. 😞", type: "sent", emoji: "👨" },
+            { text: "You’re not going to lose me... I’ll be right here. 💖", type: "received", emoji: "👩" },
+            { text: "I’ll be more patient from now on. I promise. ❤️", type: "sent", emoji: "👨" },
+            { text: "I believe you. Let’s take it slow and work through this, together. 🤝", type: "received", emoji: "👩" },
+            { text: "Thank you for understanding... You mean the world to me. 😘", type: "sent", emoji: "👨" },
+            { text: "You mean the world to me too. Let’s make it work, together. 💖", type: "received", emoji: "👩" }
+        ];
+
+
+        let index = 0;
+        let part = 1;
+        const chatBody = document.getElementById("chatBody");
+        const continueBtn = document.getElementById("continueBtn");
+
+        function addMessage() {
+            const currentMessages = part === 1 ? firstPartMessages : (part === 2 ? secondPartMessages : thirdPartMessages);
+
+            if (index < currentMessages.length) {
+                // Create message container
+                const msgDiv = document.createElement("div");
+                msgDiv.classList.add("message", currentMessages[index].type);
+
+                // Append message content and emoji as part of the message text
+                msgDiv.innerHTML = `<span>${currentMessages[index].emoji}</span> ${currentMessages[index].text}`;
+                chatBody.appendChild(msgDiv);
+                chatBody.scrollTop = chatBody.scrollHeight;
+
+                index++;
+
+                // Add a delay before the next message
+                setTimeout(addMessage, 2000);
+            } else if (part === 1 && index === currentMessages.length) {
+                // Show continue button after part 1 ends
+                continueBtn.style.display = "block";
+            }
+        }
+
+        // Start the first part after a delay
+        setTimeout(addMessage, 1000);
+
+        // Handle continue button click to proceed to the second part
+        continueBtn.addEventListener("click", function() {
+            part = part === 1 ? 2 : 3;
+            index = 0;
+            chatBody.innerHTML = ""; // Clear current chat
+            continueBtn.style.display = "none"; // Hide continue button
+            setTimeout(addMessage, 1000); // Start second part
+        });
+    </script>
+</body>
+</html>
